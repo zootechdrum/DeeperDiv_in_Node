@@ -6,12 +6,23 @@ const express = require('express');
 const app = express();
 
 const publicDirectoryPath = path.join(__dirname, '../public')
+//so express looks at a folder called templates and not views.
+const viewsPath = path.join(__dirname, '../templates')
+
+
+//Setsup handlebars and location of views folder now names templates.
+app.set('view engine', 'hbs');
+app.set('views', viewsPath);
 console.log(__dirname);
 
-app.use(express.static(publicDirectoryPath))
+//Uses static files like css and images
+ app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
-    res.send(publicDirectoryPath);
+    res.render('index' , {
+        title:'Your moms house',
+        name: 'Tom Seguro'
+    });
 })
 
 app.get('/help', (req, res) => {
@@ -19,7 +30,9 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-    res.sendFile(publicDirectoryPath+'/aboutMe.html');
+    res.render('about', {
+        title: 'Cesar Gomez'
+    })
 })
 
 app.get('/weather', (req, res) => {
