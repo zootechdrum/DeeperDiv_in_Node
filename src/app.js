@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const hbs = require('hbs')
 
 
 
@@ -7,13 +8,15 @@ const app = express();
 
 const publicDirectoryPath = path.join(__dirname, '../public')
 //so express looks at a folder called templates and not views.
-const viewsPath = path.join(__dirname, '../templates')
+const viewsPath = path.join(__dirname, '../templates/views')
+//below line sets up partials
+const partialsPath = path.join(__dirname, '../templates/partials')
 
 
 //Setsup handlebars and location of views folder now names templates.
 app.set('view engine', 'hbs');
 app.set('views', viewsPath);
-console.log(__dirname);
+hbs.registerPartials(partialsPath);
 
 //Uses static files like css and images
  app.use(express.static(publicDirectoryPath))
