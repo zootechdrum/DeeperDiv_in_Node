@@ -29,12 +29,17 @@ app.get('', (req, res) => {
 })
 
 app.get('/help', (req, res) => {
-    res.sendFile(publicDirectoryPath+'/help.html');
+    res.render('help', {
+        helpText: "This is helpful text",
+        title: "Help",
+        name: 'Cesar Gomez'
+    })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'Cesar Gomez'
+        title: 'Cesar Gomez',
+        name:'Cesar Gomez'
     })
 })
 
@@ -52,6 +57,11 @@ app.get('/weather', (req, res) => {
         }
     )
 });
+
+//Renders 404 page.
+app.get('*', () => {
+    res.send('My 404 page')
+})
 
 
 app.listen(3000, () => {
