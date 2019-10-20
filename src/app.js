@@ -19,11 +19,11 @@ app.set('views', viewsPath);
 hbs.registerPartials(partialsPath);
 
 //Uses static files like css and images
- app.use(express.static(publicDirectoryPath))
+app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
-    res.render('index' , {
-        title:'Your moms house',
+    res.render('index', {
+        title: 'Your moms house',
         name: 'Tom Seguro'
     });
 })
@@ -39,31 +39,36 @@ app.get('/help', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'Cesar Gomez',
-        name:'Cesar Gomez'
+        name: 'Cesar Gomez'
     })
 })
 
 app.get('/weather', (req, res) => {
     //Sends back a json object when weather is visited.
-    res.send(
 
-
-        {
-            name: "cesar",
-            lastName: "Gomez",
-            add: function (a, b) {
-                return a + b;
-            }
-        }
-    )
-});
-
-//Renders 404 page.
-app.get('*', () => {
-    res.send('My 404 page')
+    if (!req.query.address) {
+        return res.send({
+            error: "Please provide an address"
+        })
+    }
+    res.send({
+        forcast: "enter address",
+        locations: "Riverside",
+        address: req.query.address
+    });
 })
+    app.get('/help/*', (req, res) => {
+        res.render('404', {
+            error: 'I cant find what you are looking for'
+        })
+    });
+
+    //Renders 404 page.
+    app.get('*', () => {
+        res.send('My 404 page')
+    })
 
 
-app.listen(3000, () => {
+    app.listen(3000, () => {
         console.log("Server is up and running")
     });
