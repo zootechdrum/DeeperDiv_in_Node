@@ -23,10 +23,10 @@ hbs.registerPartials(partialsPath);
 //Uses static files like css and images
 app.use(express.static(publicDirectoryPath))
 
-app.get('', (req, res) => {
+app.get('/', (req, res) => {
     res.render('index', {
-        title: 'Your moms house',
-        name: 'Tom Seguro'
+        title: 'Weather Application Powered by Node',
+        name: 'Cesar Gomez'
     });
 })
 
