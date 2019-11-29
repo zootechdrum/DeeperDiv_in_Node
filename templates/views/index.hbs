@@ -8,14 +8,15 @@
     <title>Document</title>
 </head>
 <body>
-    {{>header}}
-    <h1>{{title}}</h1> 
-    <h3>Enter City for Forecast</h3>
-
-    <form action="">
+    <div class="main-content">
+        {{>header}}
+        <h3>Enter City for Forecast</h3>
+         <form action="">
         <input placeholder="Location" type="">
         <button>Search</button>
     </form>
+    </div>
+
 
     <p id="message-1"></p>
     <p id="message-2"></p>
