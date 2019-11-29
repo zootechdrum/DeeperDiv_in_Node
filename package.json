@@ -1,0 +1,26 @@
+{
+  "name": "deeperdiv_in_node",
+  "version": "1.0.0",
+  "description": "Weather app powered by Node",
+  "main": "src/app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "handlebars": "^4.5.3",
+    "hbs": "^4.0.6",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zootechdrum/DeeperDiv_in_Node.git"
+  },
+  "author": "cesar Gomez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zootechdrum/DeeperDiv_in_Node/issues"
+  },
+  "homepage": "https://github.com/zootechdrum/DeeperDiv_in_Node#readme"
+}
