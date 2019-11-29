@@ -80,11 +80,11 @@ app.get('/weather', (req, res) => {
     });
 
     //Renders 404 page.
-    app.get('*', () => {
+    app.get('*', (req, res) => {
         res.send('My 404 page')
     })
 
 
-    app.listen(3002, () => {
+    app.listen(3008, () => {
         console.log("Server is up and running")
     });
