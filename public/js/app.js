@@ -10,16 +10,15 @@ messageOne.textContent = 'From Javascript'
 
 let callWeather = (city)=> {
     console.log(city)
-    fetch(`http://localhost:3008/weather?address=${city}`).then((response, reject) => {
-        console.log(response)
+    fetch(`http://localhost:3010/weather?address=${city}`).then((response, reject) => {
         response.json().then((data) => {
             console.log(data)
-            messageOne.textContent = data.address;
-            messageTwo.textContent = data.forcast;
-        })
-        .catch((err) => {
-            console.log(err)
-            messageOne.textContent = err
+            if( data.error ){
+                messageOne.textContent = data.error;    
+            }else{
+                messageOne.textContent = data.location.place_name;
+                messageTwo.textContent = data.forcast;
+            }
         })
     })
 }
