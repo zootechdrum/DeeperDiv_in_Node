@@ -10,7 +10,7 @@ messageOne.textContent = 'From Javascript'
 
 let callWeather = (city)=> {
     console.log(city)
-    fetch(`http://localhost:3010/weather?address=${city}`).then((response, reject) => {
+    fetch(`http://localhost:3000/weather?address=${city}`).then((response, reject) => {
         response.json().then((data) => {
             console.log(data)
             if( data.error ){

@@ -85,6 +85,6 @@ app.get('/weather', (req, res) => {
     })
 
 
-    app.listen(3010, () => {
+    app.listen(3000, () => {
         console.log("Server is up and running")
     });
